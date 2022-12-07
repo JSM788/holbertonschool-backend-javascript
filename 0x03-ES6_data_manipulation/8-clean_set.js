@@ -1,5 +1,5 @@
 export default function cleanSet(set, startString) {
-  if (!startString || startString !== undefined) return '';
+  if (!startString || startString === undefined || typeof startString === 'undefined') return '';
   const arr = [...set];
   const newArr = arr.filter((item) => item && item !== undefined && item.startsWith(startString));
   // newArray = [ 'bonjovi', 'bonaparte', 'bonappetit' ]
