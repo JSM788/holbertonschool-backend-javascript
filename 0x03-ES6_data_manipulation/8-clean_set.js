@@ -1,12 +1,9 @@
 export default function cleanSet(set, startString) {
-  if (!startString || typeof startString === 'undefined' || startString.length <= 0) return '';
+  if (!startString || typeof startString === 'undefined') return '';
   const array = [...set];
-  const newArray = [];
-  for (const undf of array) {
-    if (undf !== undefined && undf.startsWith('bon')) {
-      newArray.push(undf);
-    }
-  }
-  const result = newArray.map((item) => item.slice(startString.length));
+  const newArray = array.filter((item) => item !== undefined && item.startsWith('bon'));
+  // newArray = [ 'bonjovi', 'bonaparte', 'bonappetit' ]
+  const result = newArray.map((item) => item.split(startString).pop());
+  // result = [ 'jovi', 'aparte', 'appetit' ]
   return result.join('-');
 }
