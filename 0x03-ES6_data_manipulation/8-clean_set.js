@@ -3,7 +3,7 @@ export default function cleanSet(set, startString) {
   const array = [...set];
   const newArray = array.filter((item) => typeof item !== 'undefined' && item.startsWith(startString));
   // newArray = [ 'bonjovi', 'bonaparte', 'bonappetit' ]
-  const result = newArray.map((item) => item.split(startString).pop());
+  const result = newArray.map((item) => item.slice(startString.length));
   // result = [ 'jovi', 'aparte', 'appetit' ]
   return result.join('-');
 }
